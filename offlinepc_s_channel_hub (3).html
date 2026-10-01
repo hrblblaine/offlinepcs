@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>OfflinePC's - Custom PC Builds, Hardware & Recommended Tech</title>
+    
+    <!-- Google Chrome Specific Meta Tags & Manifest -->
+    <meta name="theme-color" content="#08080a">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="OfflinePC's">
+    <meta name="apple-mobile-web-app-title" content="OfflinePC's">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Chrome Web App Manifest -->
+    <link rel="manifest" href="data:application/manifest+json;utf8,%7B%22name%22%3A%22OfflinePC%27s%20Hub%22%2C%22short_name%22%3A%22OfflinePCs%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%2308080a%22%2C%22theme_color%22%3A%22%23ff0033%22%7D">
+
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#ff0033',
+                            redGlow: '#ff1a3c',
+                            redDark: '#800000',
+                            darkBg: '#08080a',
+                            cardBg: '#0f0d12',
+                            cardHover: '#18121a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Chrome Webkit CSS Optimizations & Custom Glow Animations -->
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #08080a;
+            color: #f3f4f6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            overflow-x: hidden;
+        }
+
+        /* WebKit Custom Scrollbar for Google Chrome */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08080a;
+            border-left: 1px solid #1a0206;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #ff0033 0%, #800000 100%);
+            border-radius: 5px;
+            border: 2px solid #08080a;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff1a3c;
+            box-shadow: 0 0 10px #ff0033;
+        }
+
+        /* Chrome GPU Hardware Accelerated Visual Effects */
+        .red-glow-box {
+            box-shadow: 0 0 25px -5px rgba(255, 0, 51, 0.4);
+            will-change: transform, box-shadow;
+        }
+        .red-glow-hover {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+            will-change: transform, box-shadow;
+        }
+        .red-glow-hover:hover {
+            box-shadow: 0 0 35px 2px rgba(255, 0, 51, 0.6);
+            border-color: #ff0033 !important;
+        }
+        .red-glow-text {
+            text-shadow: 0 0 15px rgba(255, 0, 51, 0.8), 0 0 30px rgba(255, 0, 51, 0.4);
+        }
+
+        /* Chrome High DPI Crisp Image Rendering */
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        /* Chrome Pulse Animation */
+        @keyframes redPulse {
+            0%, 100% { box-shadow: 0 0 15px rgba(255, 0, 51, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(255, 0, 51, 0.8); }
+        }
+        .pulse-glow {
+            animation: redPulse 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white">
+
+    <!-- Header / Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-[#08080a]/90 -webkit-backdrop-blur backdrop-blur-md border-b border-red-950/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo & Channel Title -->
+                <a href="#home" class="flex items-center gap-3.5 group">
+                    <div class="relative w-12 h-12 rounded-full p-0.5 bg-gradient-to-tr from-red-600 via-red-500 to-red-950 group-hover:scale-105 transition-transform duration-300 shadow-lg shadow-red-600/40">
+                        <img src="file_000000002d0881fda64dcd87fddad593.png" alt="OfflinePC's Logo" class="w-full h-full object-cover rounded-full border border-black">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-black tracking-wider text-white group-hover:text-red-500 transition-colors">OFFLINE<span class="text-red-600">PC'S</span></span>
+                        <span class="text-[10px] tracking-widest text-red-400/80 uppercase font-bold flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span> Chrome Hub
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="text-slate-300 hover:text-red-500 font-bold transition-colors text-sm">Home</a>
+                    <a href="#recommendations" class="text-red-500 hover:text-red-400 font-bold transition-colors text-sm flex items-center gap-1.5">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i> Recommended Tech
+                    </a>
+                    <a href="#setup" class="text-slate-300 hover:text-red-500 font-bold transition-colors text-sm">Rig Specs</a>
+                    <a href="#about" class="text-slate-300 hover:text-red-500 font-bold transition-colors text-sm">About</a>
+                </nav>
+
+                <!-- Subscribe CTA & Chrome Install Prompt Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <button id="pwa-install-btn" class="hidden px-3.5 py-2 text-xs font-bold text-red-400 bg-red-950/40 border border-red-800/60 rounded-xl hover:bg-red-900/60 transition-all items-center gap-1.5">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        <span>Install App</span>
+                    </button>
+                    <a href="https://www.youtube.com/@oppcs?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="relative inline-flex items-center justify-center px-6 py-2.5 text-sm font-black text-white transition-all bg-gradient-to-r from-red-600 to-red-700 rounded-xl hover:from-red-500 hover:to-red-600 red-glow-box hover:scale-105 active:scale-95 group">
+                        <i data-lucide="youtube" class="w-5 h-5 mr-2 fill-current"></i>
+                        <span>Subscribe</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Navigation Menu Toggle -->
+                <div class="flex md:hidden">
+                    <button id="mobile-menu-btn" class="p-2 text-slate-400 hover:text-red-500 rounded-lg focus:outline-none" aria-label="Toggle Menu">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-red-950 bg-[#08080a] px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="block py-2 text-slate-300 hover:text-red-500 font-medium border-b border-slate-900">Home</a>
+            <a href="#recommendations" class="block py-2 text-red-400 hover:text-red-300 font-bold border-b border-slate-900">Recommended Tech</a>
+            <a href="#setup" class="block py-2 text-slate-300 hover:text-red-500 font-medium border-b border-slate-900">Rig Specs</a>
+            <a href="#about" class="block py-2 text-slate-300 hover:text-red-500 font-medium">About</a>
+            <div class="pt-3">
+                <a href="https://www.youtube.com/@oppcs?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 py-3 bg-red-600 text-white font-bold rounded-xl hover:bg-red-500 shadow-lg shadow-red-600/40">
+                    <i data-lucide="youtube" class="w-5 h-5 fill-current"></i> Subscribe @oppcs
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Channel Banner Section -->
+        <section id="home" class="relative">
+            <!-- Full Width Banner Background -->
+            <div class="relative w-full h-[220px] sm:h-[340px] md:h-[420px] lg:h-[480px] overflow-hidden border-b border-red-950">
+                <img src="file_000000008b0881fd9d31e5e0609a7e64.png" alt="OfflinePC's Official YouTube Banner" class="w-full h-full object-cover object-center scale-105 transition-transform duration-700 hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#08080a] via-[#08080a]/40 to-transparent"></div>
+                <div class="absolute inset-0 bg-red-600/10 mix-blend-color-dodge"></div>
+            </div>
+
+            <!-- Profile Info Card -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 sm:-mt-24 lg:-mt-28 relative z-20">
+                <div class="bg-brand-cardBg/90 -webkit-backdrop-blur backdrop-blur-xl border border-red-900/50 rounded-3xl p-6 sm:p-8 shadow-2xl red-glow-box flex flex-col md:flex-row items-center justify-between gap-6">
+                    <!-- Profile Details -->
+                    <div class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+                        <a href="https://www.youtube.com/@oppcs" target="_blank" class="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full p-1 bg-gradient-to-tr from-red-600 via-red-500 to-red-950 shadow-2xl shadow-red-600/50 flex-shrink-0 pulse-glow block">
+                            <img src="file_000000002d0881fda64dcd87fddad593.png" alt="OfflinePC's Channel Icon" class="w-full h-full object-cover rounded-full border-2 border-black">
+                        </a>
+                        <div>
+                            <div class="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight red-glow-text">OFFLINEPC'S</h1>
+                                <i data-lucide="check-circle" class="w-6 h-6 text-red-500 fill-red-500/20"></i>
+                            </div>
+                            <p class="text-red-400 font-bold text-sm sm:text-base">@oppcs • Custom PC Builds & Tech Gear Hardware</p>
+                            <p class="text-slate-400 text-xs sm:text-sm mt-2 max-w-xl">
+                                Welcome to OfflinePC's! Creating custom gaming PC builds, liquid cooling loops, hardware benchmarks, overclocking guides, and top gear reviews.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action Buttons -->
+                    <div class="flex flex-col sm:flex-row md:flex-col lg:flex-row items-center gap-4 w-full md:w-auto">
+                        <a href="https://www.youtube.com/@oppcs?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white font-extrabold rounded-2xl flex items-center justify-center gap-3 red-glow-box hover:scale-105 transition-all">
+                            <i data-lucide="youtube" class="w-6 h-6 fill-current"></i>
+                            <span>Subscribe @oppcs</span>
+                        </a>
+                        <a href="#recommendations" class="w-full sm:w-auto px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-slate-200 font-bold rounded-2xl border border-red-900/60 flex items-center justify-center gap-2 transition-all hover:border-red-500">
+                            <i data-lucide="shopping-cart" class="w-5 h-5 text-red-500"></i>
+                            <span>Recommended Gear</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Tech & Gear Showcase Section -->
+        <section id="recommendations" class="py-16 relative bg-gradient-to-b from-[#08080a] via-[#0d0306] to-[#08080a]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4 border-b border-red-950/80 pb-6">
+                    <div>
+                        <span class="text-red-500 text-xs font-black tracking-widest uppercase flex items-center gap-2">
+                            <i data-lucide="star" class="w-4 h-4 fill-red-500"></i> Hand-Picked Hardware
+                        </span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight flex items-center gap-3 mt-1">
+                            <i data-lucide="thumbs-up" class="w-8 h-8 text-red-600"></i>
+                            Tech & Gear I Recommend
+                        </h2>
+                    </div>
+                    <p class="text-slate-400 text-xs sm:text-sm max-w-md">
+                        Products tested and recommended by <strong class="text-red-400">@oppcs</strong> for optimal performance, quality, and gaming aesthetics.
+                    </p>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Recommended Product 1: Custom Topographic Wireless Gaming Mouse -->
+                    <div class="bg-brand-cardBg rounded-3xl overflow-hidden border-2 border-red-900/60 hover:border-red-500 transition-all duration-300 red-glow-hover flex flex-col justify-between group relative">
+                        
+                        <!-- Top Tag Badge & Price -->
+                        <div class="absolute top-4 left-4 right-4 z-20 flex items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="px-3 py-1 bg-red-600 text-white font-black text-[10px] tracking-wider uppercase rounded-full shadow-lg shadow-red-600/50 flex items-center gap-1">
+                                    <i data-lucide="award" class="w-3 h-3"></i> Top Pick
+                                </span>
+                                <span class="px-2.5 py-1 bg-black/80 -webkit-backdrop-blur backdrop-blur-md text-red-400 font-bold text-[10px] uppercase rounded-full border border-red-900/60">
+                                    Peripherals
+                                </span>
+                            </div>
+                            <span class="px-3 py-1 bg-emerald-500 text-black font-black text-xs tracking-wide rounded-full shadow-lg shadow-emerald-500/20">
+                                $39.99
+                            </span>
+                        </div>
+
+                        <!-- Product Image Area -->
+                        <div class="relative w-full aspect-square bg-gradient-to-b from-[#140a10] to-[#0a0508] p-6 flex items-center justify-center overflow-hidden border-b border-red-950/80">
+                            <img src="71n6L6N5MGL._AC_SL1500_.jpg" alt="Ultra-Lightweight Wireless Gaming Mouse (Topographic Pattern / Skeleton RGB Design)" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(255,0,51,0.25)] group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent opacity-80"></div>
+                        </div>
+
+                        <!-- Product Details -->
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-red-500 uppercase tracking-wider">Gaming Mouse</span>
+                                <h3 class="text-xl font-extrabold text-white group-hover:text-red-400 transition-colors mt-1 leading-snug">
+                                    Ultra-Lightweight Wireless Gaming Mouse
+                                </h3>
+                                <p class="text-slate-400 text-xs mt-3 leading-relaxed">
+                                    Featuring a sleek topographic skeleton shell design, ultra-lightweight honeycomb construction, crisp mechanical switches, vibrant RGB illumination, and high-precision tracking.
+                                </p>
+                            </div>
+
+                            <!-- Buy Button & Link -->
+                            <div class="mt-6 pt-5 border-t border-red-950/80 flex items-center justify-between gap-4">
+                                <div class="flex items-center gap-1 text-xs text-slate-400 font-semibold">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-500"></i>
+                                    <span>Tested on @oppcs</span>
+                                </div>
+                                <a href="https://www.amazon.com/gp/product/B0G4V76JFT/ref=ox_sc_saved_image_6?smid=A3VLFA71ZMYD3N&afsrc=1&showcs=1&th=1" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-black font-black text-xs rounded-xl flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all hover:scale-105">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                    <span>Amazon • $39.99</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Product 2: Wireless Mechanical Keyboard with Smart OLED Screen & Control Knob -->
+                    <div class="bg-brand-cardBg rounded-3xl overflow-hidden border-2 border-red-900/60 hover:border-red-500 transition-all duration-300 red-glow-hover flex flex-col justify-between group relative">
+                        
+                        <!-- Top Tag Badge & Price -->
+                        <div class="absolute top-4 left-4 right-4 z-20 flex items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="px-3 py-1 bg-red-600 text-white font-black text-[10px] tracking-wider uppercase rounded-full shadow-lg shadow-red-600/50 flex items-center gap-1">
+                                    <i data-lucide="flame" class="w-3 h-3"></i> Recommended
+                                </span>
+                                <span class="px-2.5 py-1 bg-black/80 -webkit-backdrop-blur backdrop-blur-md text-red-400 font-bold text-[10px] uppercase rounded-full border border-red-900/60">
+                                    Keyboards
+                                </span>
+                            </div>
+                            <span class="px-3 py-1 bg-emerald-500 text-black font-black text-xs tracking-wide rounded-full shadow-lg shadow-emerald-500/20">
+                                $69.99
+                            </span>
+                        </div>
+
+                        <!-- Product Image Area -->
+                        <div class="relative w-full aspect-square bg-gradient-to-b from-[#140a10] to-[#0a0508] p-6 flex items-center justify-center overflow-hidden border-b border-red-950/80">
+                            <img src="61i9tGXBE6L._AC_SL1500_.jpg" alt="Wireless Mechanical Keyboard with Smart OLED Screen & Control Knob" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(255,0,51,0.25)] group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent opacity-80"></div>
+                        </div>
+
+                        <!-- Product Details -->
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-red-500 uppercase tracking-wider">Mechanical Keyboard</span>
+                                <h3 class="text-xl font-extrabold text-white group-hover:text-red-400 transition-colors mt-1 leading-snug">
+                                    Wireless Mechanical Keyboard with Smart OLED Screen & Control Knob
+                                </h3>
+                                <p class="text-slate-400 text-xs mt-3 leading-relaxed">
+                                    Custom mechanical keyboard featuring per-key RGB backlighting, custom side-printed keycaps, smart OLED display screen, and volume control knob.
+                                </p>
+                            </div>
+
+                            <!-- Buy Button & Link -->
+                            <div class="mt-6 pt-5 border-t border-red-950/80 flex items-center justify-between gap-4">
+                                <div class="flex items-center gap-1 text-xs text-slate-400 font-semibold">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-500"></i>
+                                    <span>Tested on @oppcs</span>
+                                </div>
+                                <a href="https://www.amazon.com/gp/product/B0FCM4ZFMD/ref=ox_sc_saved_image_7?smid=A2FK9EP27A6ZE6&afsrc=1&showcs=1&th=1" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-black font-black text-xs rounded-xl flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all hover:scale-105">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                    <span>Amazon • $69.99</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Product 3: AMD Ryzen 7 5700U Gaming Laptop -->
+                    <div class="bg-brand-cardBg rounded-3xl overflow-hidden border-2 border-red-900/60 hover:border-red-500 transition-all duration-300 red-glow-hover flex flex-col justify-between group relative">
+                        
+                        <!-- Top Tag Badge & Price -->
+                        <div class="absolute top-4 left-4 right-4 z-20 flex items-center justify-between gap-2">
+                            <div class="flex items-center gap-2">
+                                <span class="px-3 py-1 bg-red-600 text-white font-black text-[10px] tracking-wider uppercase rounded-full shadow-lg shadow-red-600/50 flex items-center gap-1">
+                                    <i data-lucide="zap" class="w-3 h-3"></i> Best Value
+                                </span>
+                                <span class="px-2.5 py-1 bg-black/80 -webkit-backdrop-blur backdrop-blur-md text-red-400 font-bold text-[10px] uppercase rounded-full border border-red-900/60">
+                                    Laptops
+                                </span>
+                            </div>
+                            <span class="px-3 py-1 bg-emerald-500 text-black font-black text-xs tracking-wide rounded-full shadow-lg shadow-emerald-500/20">
+                                $449.99
+                            </span>
+                        </div>
+
+                        <!-- Product Image Area -->
+                        <div class="relative w-full aspect-square bg-gradient-to-b from-[#140a10] to-[#0a0508] p-6 flex items-center justify-center overflow-hidden border-b border-red-950/80">
+                            <img src="71giZ2fsJHL._AC_SL1500_.jpg" alt="AMD Ryzen 7 5700U Gaming Laptop Metal Shell Wi-Fi 6" class="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(255,0,51,0.25)] group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-cardBg via-transparent to-transparent opacity-80"></div>
+                        </div>
+
+                        <!-- Product Details -->
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <div>
+                                <span class="text-xs font-bold text-red-500 uppercase tracking-wider">Gaming Laptop</span>
+                                <h3 class="text-xl font-extrabold text-white group-hover:text-red-400 transition-colors mt-1 leading-snug">
+                                    AMD Ryzen 7 5700U Metal Shell Gaming Laptop
+                                </h3>
+                                <p class="text-slate-400 text-xs mt-3 leading-relaxed">
+                                    High-performance laptop featuring AMD Ryzen 7 5700U 8-Core processor, AMD Radeon Graphics, premium metal shell build, and high-speed Wi-Fi 6 connectivity.
+                                </p>
+                            </div>
+
+                            <!-- Buy Button & Link -->
+                            <div class="mt-6 pt-5 border-t border-red-950/80 flex items-center justify-between gap-4">
+                                <div class="flex items-center gap-1 text-xs text-slate-400 font-semibold">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-500"></i>
+                                    <span>Tested on @oppcs</span>
+                                </div>
+                                <a href="https://www.amazon.com/gp/product/B0GQSP2Y4J/ref=ox_sc_saved_image_1?smid=A32W8EMHB882E4&psc=1&afsrc=1&showcs=1" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-black font-black text-xs rounded-xl flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all hover:scale-105">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                                    <span>Amazon • $449.99</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hardware Setup & Gear Specs -->
+        <section id="setup" class="py-16 bg-[#0c0104] border-y border-red-950/80 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-red-500 text-xs font-black tracking-widest uppercase">Studio Setup</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight flex items-center justify-center gap-3 mt-1">
+                        <i data-lucide="cpu" class="w-8 h-8 text-red-600"></i>
+                        Official Gaming & Build Specs
+                    </h2>
+                    <p class="text-slate-400 text-sm mt-2">
+                        Hardware components, liquid cooling gear, and peripherals used on the @oppcs channel.
+                    </p>
+                </div>
+
+                <!-- Hardware Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Spec Item 1 -->
+                    <div class="p-6 bg-brand-cardBg rounded-2xl border border-red-950/80 hover:border-red-600 transition-all red-glow-hover group">
+                        <div class="flex items-center gap-4 mb-3">
+                            <div class="p-3 bg-red-950/50 text-red-500 rounded-xl border border-red-800/50">
+                                <i data-lucide="cpu" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-red-400 font-bold uppercase">Processor</span>
+                                <h3 class="text-lg font-bold text-white group-hover:text-red-400 transition-colors">AMD Ryzen 9 7950X3D</h3>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-xs">16 Core processor with 3D V-Cache engineered for high-frame-rate gaming and multi-threaded video encoding.</p>
+                    </div>
+
+                    <!-- Spec Item 2 -->
+                    <div class="p-6 bg-brand-cardBg rounded-2xl border border-red-950/80 hover:border-red-600 transition-all red-glow-hover group">
+                        <div class="flex items-center gap-4 mb-3">
+                            <div class="p-3 bg-red-950/50 text-red-500 rounded-xl border border-red-800/50">
+                                <i data-lucide="zap" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-red-400 font-bold uppercase">Graphics Card</span>
+                                <h3 class="text-lg font-bold text-white group-hover:text-red-400 transition-colors">NVIDIA RTX 4090 24GB</h3>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-xs">Custom liquid-cooled GPU delivering high 4K gaming performance and ray tracing benchmarks.</p>
+                    </div>
+
+                    <!-- Spec Item 3 -->
+                    <div class="p-6 bg-brand-cardBg rounded-2xl border border-red-950/80 hover:border-red-600 transition-all red-glow-hover group">
+                        <div class="flex items-center gap-4 mb-3">
+                            <div class="p-3 bg-red-950/50 text-red-500 rounded-xl border border-red-800/50">
+                                <i data-lucide="mouse" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <span class="text-[10px] text-red-400 font-bold uppercase">Primary Mouse</span>
+                                <h3 class="text-lg font-bold text-white group-hover:text-red-400 transition-colors">Topographic Skeleton Wireless</h3>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-xs">Matching our red-and-black artwork with high precision wireless sensors and RGB lighting effects.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-red-500 text-xs font-black tracking-widest uppercase">About OfflinePC's</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-white mt-1 mb-6">
+                            Custom PC Builds, Performance Benchmarks & Tech Mods.
+                        </h2>
+                        <p class="text-slate-300 leading-relaxed text-sm sm:text-base mb-4">
+                            At <strong class="text-white">OfflinePC's (@oppcs)</strong>, we focus on high-end computer hardware, liquid cooling, and custom gaming setup designs.
+                        </p>
+                        <p class="text-slate-400 leading-relaxed text-sm sm:text-base mb-6">
+                            Whether you're building your first computer or looking for extreme overclocking guides and recommended hardware gear, OfflinePC's delivers clear videos and tutorials.
+                        </p>
+                    </div>
+
+                    <!-- OfflinePC's Logo Showcase Card -->
+                    <div class="flex justify-center">
+                        <a href="https://www.youtube.com/@oppcs" target="_blank" class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden border-2 border-red-900 shadow-2xl p-2 bg-gradient-to-b from-red-950/60 to-black red-glow-box block group">
+                            <img src="file_000000002d0881fda64dcd87fddad593.png" alt="OfflinePC's Logo Art" class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community CTA Section -->
+        <section id="community" class="py-16 bg-gradient-to-b from-[#0c0104] to-[#08080a] relative border-t border-red-950/80">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="bg-brand-cardBg rounded-3xl p-8 sm:p-12 border border-red-900/60 shadow-2xl red-glow-box relative overflow-hidden">
+                    <i data-lucide="users" class="w-12 h-12 text-red-500 mx-auto mb-4"></i>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mb-3">Join the OfflinePC's Community</h2>
+                    <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mb-8">
+                        Stay connected with upcoming build projects, ask PC troubleshooting questions, and share your own setup!
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center gap-4">
+                        <a href="https://www.youtube.com/@oppcs?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-black flex items-center gap-2 shadow-lg shadow-red-600/40 transition-all hover:scale-105">
+                            <i data-lucide="youtube" class="w-5 h-5 fill-current"></i> Subscribe @oppcs
+                        </a>
+                        <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 font-bold flex items-center gap-2 border border-red-900/60 transition-all hover:scale-105">
+                            <i data-lucide="message-square" class="w-5 h-5 text-red-500"></i> Join Discord
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-red-950 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <a href="https://www.youtube.com/@oppcs" target="_blank" class="flex items-center gap-3">
+                <img src="file_000000002d0881fda64dcd87fddad593.png" alt="OfflinePC's Logo" class="w-8 h-8 rounded-full border border-red-600">
+                <span class="text-lg font-black text-white">OFFLINE<span class="text-red-600">PC'S</span></span>
+            </a>
+            <p class="text-xs text-slate-500">
+                &copy; 2026 OfflinePC's (@oppcs). Recommended Tech Showcase Hub.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Drawer Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Google Chrome PWA Web App Install Prompt Handler
+        let deferredPrompt;
+        const pwaInstallBtn = document.getElementById('pwa-install-btn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            if (pwaInstallBtn) {
+                pwaInstallBtn.classList.remove('hidden');
+                pwaInstallBtn.classList.add('flex');
+            }
+        });
+
+        if (pwaInstallBtn) {
+            pwaInstallBtn.addEventListener('click', async () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    const { outcome } = await deferredPrompt.userChoice;
+                    if (outcome === 'accepted') {
+                        pwaInstallBtn.classList.add('hidden');
+                    }
+                    deferredPrompt = null;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
